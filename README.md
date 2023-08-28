@@ -1,57 +1,15 @@
-# TypeScript Weather API
----
-<div>
-<b>Quick menu:</b>
-<a href="https://theultimateapichallenge.com/challenges/weather-typescript-api" target="_blank" rel="noopener"
-    style="padding:0.35rem 0.7rem;
-    color: black;
-    background: #BDFFF3;
-    border-radius:10px;
-    font-size:0.85rem;
-    font-weight:600;">Challenge Page</a> |
-<a href="https://openweathermap.org/api" target="_blank" rel="noopener"
-    style="padding:0.35rem 0.7rem;
-    color: black;
-    background: #F1DEDE;
-    border-radius:10px;
-    font-size:0.85rem;
-    font-weight:600;">Official API Docs</a> |
-<a href="https://youtu.be/6MKFKwwhbNo" target="_blank" rel="noopener"
-    style="padding:0.35rem 0.7rem;
-    color: black;
-    background: #FE938C;
-    border-radius:10px;
-    font-size:0.85rem;
-    font-weight:600;">YouTube Video</a> 
-</div>
+This repository is using ReactJS, TypeScript and TailwindCSS. It also runs on node 18 (see .nvmrc) and has a formatter - prettier. If you're running this for the first time - please ensure you have nvm (node version manager).
 
----
+## How To Run
 
-## Description
+If you don't have nvm installed, run the following command:
+`curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash`
+After you got nvm installed on your machine, run `nvm i` and then `nvm use` (to have the correct nodeJs version)
 
-<p>The <b>Weather API Challenge</b> in TypeScript ✨ project is the most longed for and it is here! We will dive intro ReactJS, TypeScript, Fetch and TailwindCSS. We will learn how to use react with typescript (very typescript beginner friendly!) and will learn how to fetch data from an api in the context of react typescript.</p>
+Once you have the correct node version, run `npm i` to get all the required dependencies installed
 
-<p>In this project we will work with a search field that listens to the user's input and makes an API call to get a suggestion of top 5 locations the user might be looking for. Once the user submits the search we will make another api call and get the user the weather data ✨</p>
+After everything is installed, run `npm run start` and navigate to http://localhost:3000
 
-### Tech stack
-```
-Core:
-- ReactJS
-- TypeScript
-- TailwindCSS
+## API Calls
 
-Communication tool:
-- fetch
-```
-
-### Prerequisites
-```
-Knowledge level: 
-A typescript beginner friendly challenge! Enough if you are familiar with reactJS or if you're willing to challenge yourself.
-
-Tech: 
-a computer/laptop to copy the files to with a code editor of your choice
-```
-
-## Preview
-<img src="/preview.png" height="500" style="border-radius:10px;margin-bottom:1rem;" />
+Please Note: The OpenWeather API is using an API Key. In the repository you fill find a `.env.example` file which you need to copy/save as `.env` and paste the value of your API key (which you can get when you register on the OpenWeather API website).

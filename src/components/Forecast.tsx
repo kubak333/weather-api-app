@@ -1,41 +1,43 @@
-import Degree from './Degree'
+import {
+  getHumidityValue,
+  getPop,
+  getSunTime,
+  getVisibilityValue,
+  getWindDirection,
+} from '../helpers'
+import { forecastType } from '../types'
 import Sunrise from './Icons/Sunrise'
 import Sunset from './Icons/Sunset'
 import Tile from './Tile'
-
-import {
-  getHumidityValue,
-  getWindDirection,
-  getVisibilityValue,
-  getSunTime,
-  getPop,
-} from './../helpers'
-
-import { forecastType } from '../types'
 
 type Props = {
   data: forecastType
 }
 
-const Forecast = ({ data }: Props) => {
+const Degree = ({ temp }: { temp: number }): JSX.Element => (
+  <span>
+    {temp}
+    <sup>o</sup>
+  </span>
+)
+const Forecast = ({ data }: Props): JSX.Element => {
   const today = data.list[0]
-
   return (
     <div className="w-full md:max-w-[500px] py-4 md:py-4 md:px-10 lg:px-24 h-full lg:h-auto bg-white bg-opacity-20 backdrop-blur-ls rounded drop-shadow-lg">
       <div className="mx-auto w-[300px]">
         <section className="text-center">
-          <h2 className="text-2xl font-black">
+          <h2 className="text-2x1 font-black">
             {data.name} <span className="font-thin">{data.country}</span>
           </h2>
-          <h1 className="text-4xl font-extrabold">
+          <h1 className="text-4x1 font-extrabold">
             <Degree temp={Math.round(today.main.temp)} />
           </h1>
           <p className="text-sm">
             {today.weather[0].main} ({today.weather[0].description})
           </p>
           <p className="text-sm">
-            H: <Degree temp={Math.ceil(today.main.temp_max)} /> L:{' '}
-            <Degree temp={Math.floor(today.main.temp_min)} />
+            H: <Degree temp={Math.ceil(today.main.temp_max)} />
+            L: <Degree temp={Math.floor(today.main.temp_min)} />
           </p>
         </section>
 
@@ -58,7 +60,6 @@ const Forecast = ({ data }: Props) => {
             </div>
           ))}
         </section>
-
         <section className="flex flex-wrap justify-between text-zinc-700">
           <div className="w-[140px] text-xs font-bold flex flex-col items-center bg-white/20 backdrop-blur-ls rounded drop-shadow-lg py-4 mb-5">
             <Sunrise /> <span className="mt-2">{getSunTime(data.sunrise)}</span>
@@ -86,7 +87,7 @@ const Forecast = ({ data }: Props) => {
                 : 'warmer'
             }`}
           />
-          <Tile
+          {/* <Tile
             icon="humidity"
             title="Humidity"
             info={`${today.main.humidity} %`}
@@ -97,7 +98,7 @@ const Forecast = ({ data }: Props) => {
             title="Precipitation"
             info={`${Math.round(today.pop * 100)}%`}
             description={`${getPop(today.pop)}, clouds at ${today.clouds.all}%`}
-          />
+          /> */}
           <Tile
             icon="pressure"
             title="Pressure"
